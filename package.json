@@ -5,13 +5,13 @@
     "type": "module",
     "license": "MIT",
     "author": {
-        "name": "Touchify",
-        "email": "dev@touchify.io",
-        "url": "https://touchify.io"
+        "name": "plutoniumm",
+        "url": "https://manav.ch"
     },
     "scripts": {
         "dev": "vite dev",
         "build": "vite build",
+        "postbuild": "npm run package",
         "package": "svelte-package -o package",
         "preview": "vite preview"
     },

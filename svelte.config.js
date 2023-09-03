@@ -6,10 +6,7 @@ const config = {
     preprocess: preprocess(),
 
     kit: {
-        adapter: adapter( {
-            pages: "build",
-            assets: "build"
-        } ),
+        adapter: adapter(),
         paths: {
             base: "/sveltemirror",
         },
