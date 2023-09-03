@@ -47,11 +47,7 @@
 </script>
 
 <!-- message, keyup and click -->
-<svelte:window
-    on:message={handleMessage}
-    on:keyup={handleKeyup}
-    on:click={handleClick}
-/>
+<svelte:window on:message={handleMessage} />
 
 <main class="f">
     <div class="editor">
