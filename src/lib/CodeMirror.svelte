@@ -8,8 +8,16 @@
 <script lang="ts">
     import { createEventDispatcher, onDestroy, onMount } from "svelte";
     import { basicSetup } from "codemirror";
-    import { EditorView, keymap, placeholder as placeholderExt } from "@codemirror/view";
-    import { EditorState, StateEffect, type Extension } from "@codemirror/state";
+    import {
+        EditorView,
+        keymap,
+        placeholder as placeholderExt,
+    } from "@codemirror/view";
+    import {
+        EditorState,
+        StateEffect,
+        type Extension,
+    } from "@codemirror/state";
     import { indentWithTab } from "@codemirror/commands";
     import { indentUnit, type LanguageSupport } from "@codemirror/language";
     import { debounce } from "./util";
@@ -44,7 +52,16 @@
     let first_update = true;
 
     $: state_extensions = [
-        ...get_base_extensions(basic, useTab, tabSize, lineWrapping, placeholder, editable, readonly, lang),
+        ...get_base_extensions(
+            basic,
+            useTab,
+            tabSize,
+            lineWrapping,
+            placeholder,
+            editable,
+            readonly,
+            lang
+        ),
         ...get_theme(theme, styles),
         ...extensions,
     ];
@@ -110,7 +127,9 @@
         dispatch("change", value);
     }
 
-    function create_editor_state(value: string | null | undefined): EditorState {
+    function create_editor_state(
+        value: string | null | undefined
+    ): EditorState {
         return EditorState.create({
             doc: value ?? undefined,
             extensions: state_extensions,
@@ -142,7 +161,10 @@
         return extensions;
     }
 
-    function get_theme(theme: Extension | null | undefined, styles: ThemeSpec | null | undefined): Extension[] {
+    function get_theme(
+        theme: Extension | null | undefined,
+        styles: ThemeSpec | null | undefined
+    ): Extension[] {
         const extensions: Extension[] = [];
         if (styles) extensions.push(EditorView.theme(styles));
         if (theme) extensions.push(theme);

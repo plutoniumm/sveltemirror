@@ -12,7 +12,7 @@
     "scripts": {
         "dev": "vite dev",
         "build": "vite build",
-        "package": "svelte-package",
+        "package": "svelte-package -o package",
         "preview": "vite preview"
     },
     "peerDependencies": {
@@ -25,12 +25,30 @@
         "@codemirror/theme-one-dark": "^6.1.2",
         "@sveltejs/adapter-static": "2.0.3",
         "@sveltejs/kit": "1.24.0",
-        "@sveltejs/package": "2.0.2",
+        "@sveltejs/package": "^2.0.0",
         "codemirror": "^6.0.1",
         "svelte": "^4.2.0",
         "svelte-preprocess": "^5.0.4",
         "tslib": "^2.3.1",
         "typescript": "^5.1.6",
         "vite": "^4.4.9"
-    }
+    },
+    "dependencies": {
+        "@codemirror/commands": "^6.2.5",
+        "@codemirror/language": "^6.9.0",
+        "@codemirror/state": "^6.2.1",
+        "@codemirror/view": "^6.17.1"
+    },
+    "exports": {
+        "./package.json": "./package.json",
+        ".": {
+            "types": "./package/index.d.ts",
+            "svelte": "./package/index.js",
+            "default": "./package/index.js"
+        }
+    },
+    "files": [
+        "package"
+    ],
+    "svelte": "./package/index.js"
 }

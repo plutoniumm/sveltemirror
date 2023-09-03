@@ -5,25 +5,13 @@ import adapter from "@sveltejs/adapter-static";
 const config = {
     preprocess: preprocess(),
 
-    package: {
-        exports(filepath) {
-            return filepath.endsWith("package.json") || filepath.endsWith("index.ts");
-        },
-    },
-
     kit: {
-        adapter: adapter({
+        adapter: adapter( {
             pages: "build",
-            assets: "build",
-            fallback: null,
-        }),
-
-        prerender: {
-            default: true,
-        },
-
+            assets: "build"
+        } ),
         paths: {
-            base: "/svelte-codemirror-editor",
+            base: "/sveltemirror",
         },
     },
 };
