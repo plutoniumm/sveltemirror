@@ -1,20 +1,32 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <title>This is Some Basic HTML Stuff</title>
 
   <link rel="stylesheet" href="https://manav.ch/atomic.css">
+  <style>
+    .card {
+      background: linear-gradient(135deg, red, purple);
+      color: #fff;
+    }
+  </style>
 </head>
 
 <body>
   <!-- card -->
-  <div class="f rpm-20 j-bw">
-    <img src="" alt=" ">
+  <div class="f rpm-20 j-bw card">
+    <img src="./logo.svg" alt="sveltemirror logo" height="150px" width="150px" style="margin-right: 10px;">
+
     <div class="body">
-      <h1>Card Title</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
-      <a href="#" class="btn">Read More</a>
+      <h1 class="m0" style="margin-bottom: .25em;">
+        Sveltemirror
+      </h1>
+
+      <p>
+        A codemirror wrapper for svelte. It is easily customizable and and completely embeddable with postMessage.
+      </p>
+
+      <a href="https://github.com/plutoniumm/sveltemirror" class="btn">Read More</a>
     </div>
   </div>
 </body>

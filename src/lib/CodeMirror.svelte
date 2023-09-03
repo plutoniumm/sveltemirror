@@ -6,6 +6,7 @@
 </script>
 
 <script lang="ts">
+    type None = null | undefined;
     import { createEventDispatcher, onDestroy, onMount } from "svelte";
     import { basicSetup } from "codemirror";
     import {
@@ -23,28 +24,26 @@
     import { debounce } from "./util";
 
     let classes = "";
+
     export { classes as class };
-    export let value: string | null | undefined = "";
-
+    export let value: string | None = "";
     export let basic = true;
-    export let lang: LanguageSupport | null | undefined = undefined;
-    export let theme: Extension | null | undefined = undefined;
+    export let lang: LanguageSupport | None = undefined;
+    export let theme: Extension | None = undefined;
     export let extensions: Extension[] = [];
-
     export let useTab = true;
     export let tabSize = 2;
-
-    export let styles: ThemeSpec | null | undefined = undefined;
+    export let styles: ThemeSpec | None = undefined;
     export let lineWrapping = false;
     export let editable = true;
     export let readonly = false;
-    export let placeholder: string | HTMLElement | null | undefined = undefined;
+    export let placeholder: string | HTMLElement | None = undefined;
+    export let view: EditorView;
 
     const is_browser = typeof window !== "undefined";
     const dispatch = createEventDispatcher<{ change: string }>();
 
     let element: HTMLDivElement;
-    let view: EditorView;
 
     let update_from_prop = false;
     let update_from_state = false;
@@ -99,7 +98,7 @@
         });
     }
 
-    function update(value: string | null | undefined): void {
+    function update(value: string | None): void {
         if (first_update) {
             first_update = false;
             return;
@@ -127,9 +126,7 @@
         dispatch("change", value);
     }
 
-    function create_editor_state(
-        value: string | null | undefined
-    ): EditorState {
+    function create_editor_state(value: string | None): EditorState {
         return EditorState.create({
             doc: value ?? undefined,
             extensions: state_extensions,
@@ -141,10 +138,10 @@
         useTab: boolean,
         tabSize: number,
         lineWrapping: boolean,
-        placeholder: string | HTMLElement | null | undefined,
+        placeholder: string | HTMLElement | None,
         editable: boolean,
         readonly: boolean,
-        lang: LanguageSupport | null | undefined
+        lang: LanguageSupport | None
     ): Extension[] {
         const extensions: Extension[] = [
             indentUnit.of(" ".repeat(tabSize)),
@@ -162,8 +159,8 @@
     }
 
     function get_theme(
-        theme: Extension | null | undefined,
-        styles: ThemeSpec | null | undefined
+        theme: Extension | None,
+        styles: ThemeSpec | None
     ): Extension[] {
         const extensions: Extension[] = [];
         if (styles) extensions.push(EditorView.theme(styles));

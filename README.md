@@ -7,6 +7,8 @@
 
 A svelte component to create a [CodeMirror 6](https://codemirror.net/6/) editor.
 
+- It debounces and checks for old vs new automatically.
+
 ## Installation
 
 ```bash

@@ -4,23 +4,24 @@
     import { oneDark } from "@codemirror/theme-one-dark";
     import { onMount } from "svelte";
     import Template from "./template.html?raw";
-    import { base } from "$app/paths";
+    import type { EditorView } from "codemirror";
 
     let //
         value = "",
-        old = "",
+        view: EditorView,
+        frame: any,
         doc = null as any;
 
     let props: CodeMirror["$$prop_def"] = {
-        basic: true,
-        useTab: true,
-        editable: true,
-        lineWrapping: false,
-        readonly: false,
         tabSize: 2,
         placeholder: null,
         lang: html(),
         theme: oneDark,
+        basic: true,
+        useTab: true,
+        editable: true,
+        lineWrapping: true,
+        readonly: false,
     };
 
     const write = (text: any) => {
@@ -29,18 +30,10 @@
         doc.close();
     };
 
-    const handleChange = () => {
-        const current = value;
-        if (old === current) return 0;
-
-        old = current;
-        write(current);
-    };
-
+    const handleChange = () => write(value);
     onMount(() => {
         value = Template;
-        if (!doc)
-            doc = document.getElementById("mfWHAT").contentWindow.document;
+        if (!doc) doc = frame.contentWindow.document;
         write(value);
     });
 
@@ -53,16 +46,22 @@
     };
 </script>
 
-<svelte:window on:message={handleMessage} />
+<!-- message, keyup and click -->
+<svelte:window
+    on:message={handleMessage}
+    on:keyup={handleKeyup}
+    on:click={handleClick}
+/>
 
 <main class="f">
     <div class="editor">
         <CodeMirror
             bind:value
+            bind:view
             class="editor"
             styles={{
                 "&": {
-                    fontSize: "18px",
+                    fontSize: "16px",
                     height: "100%",
                     width: "100%",
                 },
@@ -74,6 +73,7 @@
     <iframe
         id="mfWHAT"
         frameborder="0"
+        bind:this={frame}
         title="Editor Output"
         style="background: #fff;"
     />
