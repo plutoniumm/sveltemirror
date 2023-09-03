@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>sveltemirror</title>
+    <meta name="description" content="Svelte bindings for Codemirror 6. Fully embeddable and batteries included." />
+
+    <link rel="icon" type="image/svg+xml" href="./logo.svg" />
+    <link rel="apple-touch-icon" href="./logo.svg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="manav.ch" />
+    <meta name="twitter:creator" content="@MPlutoniumm" />
+    <meta name="twitter:title" content="sveltemirror" />
+    <meta name="twitter:description"
+        content="Svelte bindings for Codemirror 6. Fully embeddable and batteries included." />
+    <meta name="twitter:image" content="./logo.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="sveltemirror" />
+    <meta property="og:description"
+        content="Svelte bindings for Codemirror 6. Fully embeddable and batteries included." />
+    <meta property="og:image" content="./logo.svg" />
+
+    <link rel="stylesheet" href="https://manav.ch/atomic.css">
+
+    <style>
+        .cm-scroller {
+            overflow: auto;
+            min-height: 100vh
+        }
+    </style>
+    
+		<link href="./_app/immutable/assets/2.4def38c5.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.80227347.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.a44f8b23.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.993c74e9.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.bcb33582.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.84b44293.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.569a5f39.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.f8b96c2e.js">
+</head>
+
+<body>
+    <div>    <main class="f svelte-8ksg94"><div class="editor svelte-8ksg94"><div class="scm-waiting editor svelte-kcx0g9"><div class="scm-waiting__loading scm-loading svelte-kcx0g9" data-svelte-h="svelte-1pxusly"><div class="scm-loading__spinner svelte-kcx0g9"></div> <p class="scm-loading__text svelte-kcx0g9">Loading editor...</p></div> <pre class="scm-pre cm-editor svelte-kcx0g9"></pre></div></div> <iframe id="mfWHAT" frameborder="0" title="Editor Output" style="background: #fff;" class="svelte-8ksg94"></iframe> </main> 
+			
+			<script>
+				{
+					__sveltekit_1cx0n97 = {
+						assets: "/sveltemirror",
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.80227347.js"),
+						import("./_app/immutable/entry/app.bcb33582.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+</body>
+
+</html>
