@@ -1,16 +1,12 @@
-# sveltemirror
+<div align="center">
+<img src="./static/logo.svg" width="200" height="200" alt="sveltemirror logo" />
+<h1>sveltemirror</h1>
 
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](http://opensource.org/licenses/MIT)
-[![NPM version](https://img.shields.io/npm/v/sveltemirror.svg?style=flat-square)](https://npmjs.org/package/sveltemirror)
-[![NPM download](https://img.shields.io/npm/dm/sveltemirror.svg?style=flat-square)](https://npmjs.org/package/sveltemirror)
-[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+A svelte wrapper for [CodeMirror 6](https://codemirror.net/6/)
 
-A svelte component to create a [CodeMirror 6](https://codemirror.net/6/) editor.
-
-- It debounces and checks for old vs new automatically.
+</div>
 
 ## Installation
-
 ```bash
 npm install sveltemirror
 ```
@@ -29,6 +25,8 @@ To use `sveltemirror`, you need to import the package and use it as any `Svelte`
 
 <CodeMirror bind:value lang={javascript()} />
 ```
+
+> Note: It debounces and checks for old vs new automatically. There is no need to repeat that logic in your code
 
 ## Properties
 
