@@ -1,5 +1,5 @@
 <script lang="ts">
-    import CodeMirror from "$lib";
+    import CodeMirror, { Renderer } from "$lib";
     import { html } from "@codemirror/lang-html";
     import { oneDark } from "@codemirror/theme-one-dark";
     import { onMount } from "svelte";
@@ -8,9 +8,7 @@
 
     let //
         value = "",
-        view: EditorView,
-        frame: any,
-        doc = null as any;
+        view: EditorView;
 
     let props: CodeMirror["$$prop_def"] = {
         tabSize: 2,
@@ -24,37 +22,33 @@
         readonly: false,
     };
 
-    const write = (text: any) => {
-        doc.open();
-        doc.write(text);
-        doc.close();
-    };
-
-    const handleChange = () => write(value);
-    onMount(() => {
-        value = Template;
-        if (!doc) doc = frame.contentWindow.document;
-        write(value);
-    });
-
     const handleMessage = ({ data }) => {
         if (data.type !== "code") return 0; // ignore if not code
 
         const { code } = data;
         value = code;
-        write(code);
     };
+
+    onMount(() => (value = Template));
 </script>
 
 <!-- message, keyup and click -->
 <svelte:window on:message={handleMessage} />
+
+<svelte:head>
+    <style>
+        .cm-scroller {
+            overflow: auto;
+            min-height: 100vh;
+        }
+    </style>
+</svelte:head>
 
 <main class="f">
     <div class="editor">
         <CodeMirror
             bind:value
             bind:view
-            class="editor"
             styles={{
                 "&": {
                     fontSize: "16px",
@@ -62,17 +56,22 @@
                     width: "100%",
                 },
             }}
+            delay={500}
             {...props}
-            on:change={handleChange}
         />
     </div>
-    <iframe
-        id="mfWHAT"
-        frameborder="0"
-        bind:this={frame}
-        title="Editor Output"
-        style="background: #fff;"
-    />
+    <div class="frame">
+        <Renderer
+            bind:value
+            preprocess={(value) => {
+                const prefix = `<div class='p20 m10'>
+                    You can add modifiers also! Cursor At:
+                    ${view.state.selection.main.head}
+                </div>`;
+                return (value = prefix + value);
+            }}
+        />
+    </div>
 </main>
 
 <style>
@@ -84,7 +83,7 @@
     }
 
     .editor,
-    iframe {
+    .frame {
         width: 50%;
         height: 100%;
     }
@@ -95,7 +94,7 @@
         }
 
         .editor,
-        iframe {
+        .frame {
             width: 100%;
             height: 50%;
         }

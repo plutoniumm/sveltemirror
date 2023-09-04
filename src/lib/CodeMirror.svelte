@@ -38,7 +38,7 @@
     export let editable = true;
     export let readonly = false;
     export let placeholder: string | HTMLElement | None = undefined;
-    export let view: EditorView;
+    export let view: EditorView | None;
 
     const is_browser = typeof window !== "undefined";
     const dispatch = createEventDispatcher<{ change: string }>();
@@ -71,8 +71,9 @@
     onMount(() => (view = create_editor_view()));
     onDestroy(() => view?.destroy());
 
+    export let delay: number = 300;
     function create_editor_view(): EditorView {
-        const on_change = debounce(handle_change, 300);
+        const on_change = debounce(handle_change, Math.max(1, delay));
 
         return new EditorView({
             parent: element,

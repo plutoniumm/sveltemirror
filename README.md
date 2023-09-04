@@ -13,7 +13,7 @@ npm install sveltemirror
 
 ## Usage
 
-To use `sveltemirror`, you need to import the package and use it as any `Svelte` component.
+To use `sveltemirror`, you need to import the package and use it as any `Svelte` component. For more see [docs](https://plutoniumm.github.io/sveltemirror/docs).
 
 ```svelte
 <script lang="ts">
@@ -33,6 +33,7 @@ To use `sveltemirror`, you need to import the package and use it as any `Svelte`
 | Property      | Type              | Description                                                          | Default value |
 | ------------- | ----------------- | -------------------------------------------------------------------- | ------------- |
 | `value`       | `string`          | The value that will be displayed and edited in the CodeMirror editor | `""`          |
+| `view`       | `EditorView`          | Codemirror view instance | `""`          |
 | `basic`       | `boolean`         | Whether to use CodeMirror `basicSetup` extensions.                   | `true`        |
 | `lang`        | `LanguageSupport` | The language extension that will parse and highlight the value.      | `undefined`   |
 | `theme`       | `Extension`       | The theme extension to customize the appearence of the editor.       | `undefined`   |
@@ -43,6 +44,7 @@ To use `sveltemirror`, you need to import the package and use it as any `Svelte`
 | `readonly`    | `boolean`         | Whether to make the editor readonly or not.                          | `false`       |
 | `placeholder` | `string`          | A placeholder to include when value is empty.                        | `undefined`   |
 | `styles`      | `ThemeSpec`       | In-place theme configuration. _See exemple below_.                   | `undefined`   |
+| `delay`      | `number`          | The delay in ms before the `change` event is triggered. i.e the debounce duration.                   | `300`   |
 
 ## Events
 
@@ -50,8 +52,7 @@ To use `sveltemirror`, you need to import the package and use it as any `Svelte`
 | -------- | -------- | ----------------------------- |
 | `change` | `string` | Trigger when the code changes |
 
-## Usage with vite / svelte-kit
-
+## Usage with vite/svelte-kit
 If you try to use this component with `vite` or `svelte-kit`, you have to disable dependency optimization for `codemirror` and all its extensions.
 
 ```javascript
@@ -63,58 +64,6 @@ const config = {
     },
     //...
 }
-```
-
-## Exemples
-
-### Basic usage
-
-```svelte
-<script lang="ts">
-    import CodeMirror from "sveltemirror";
-    import { javascript } from "@codemirror/lang-javascript";
-
-    let value = "";
-</script>
-
-<CodeMirror bind:value lang={javascript()} />
-```
-
-### Custom theme
-
-```svelte
-<script lang="ts">
-    import CodeMirror from "sveltemirror";
-    import { javascript } from "@codemirror/lang-javascript";
-    import { oneDark } from "@codemirror/theme-one-dark";
-
-    let value = "";
-</script>
-
-<CodeMirror bind:value lang={javascript()} theme={oneDark} />
-```
-
-### Custom styles
-
-```svelte
-<script lang="ts">
-    import CodeMirror from "sveltemirror";
-    import { javascript } from "@codemirror/lang-javascript";
-
-    let value = "";
-</script>
-
-<CodeMirror
-    bind:value
-    lang={javascript()}
-    styles={{
-        "&": {
-            width: "500px",
-            maxWidth: "100%",
-            height: "50rem",
-        },
-    }}
-/>
 ```
 
 ## License
