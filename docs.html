@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>sveltemirror</title>
+    <meta name="description" content="Svelte bindings for Codemirror 6. Fully embeddable and batteries included." />
+
+    <link rel="icon" type="image/svg+xml" href="./logo.svg" />
+    <link rel="apple-touch-icon" href="./logo.svg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="manav.ch" />
+    <meta name="twitter:creator" content="@MPlutoniumm" />
+    <meta name="twitter:title" content="sveltemirror" />
+    <meta name="twitter:description"
+        content="Svelte bindings for Codemirror 6. Fully embeddable and batteries included." />
+    <meta name="twitter:image" content="./logo.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="sveltemirror" />
+    <meta property="og:description"
+        content="Svelte bindings for Codemirror 6. Fully embeddable and batteries included." />
+    <meta property="og:image" content="./logo.svg" />
+
+    <link rel="stylesheet" href="https://manav.ch/atomic.css">
+    
+		<link href="./_app/immutable/assets/3.c91ec9cb.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/index.5fef33be.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.def86328.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.d5f951d9.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.3f2d7c60.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.edcc5e7e.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.852cda47.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.77d92ce5.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.e022a992.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.67a2fe99.js"><!-- HEAD_svelte-zpasi5_START --><style data-svelte-h="svelte-1geob70">body {
+      background: #eef;
+    }</style><!-- HEAD_svelte-zpasi5_END -->
+</head>
+
+<body>
+    <div style="display: contents;">   <main class="mx-a" style="width: min(100%, 600px);"><h1 data-svelte-h="svelte-1gc0q03">Sveltemirror 📚</h1> <p data-svelte-h="svelte-11e6mmd">This is a collection of Svelte components that use
+    <a href="https://codemirror.net/">CodeMirror</a> to provide code editing functionality.</p> <h2 data-svelte-h="svelte-1ris1ql">Getting Started</h2> <p data-svelte-h="svelte-13gf789">To get started, install the package from npm:</p> <pre class="svelte-98j2lk" data-svelte-h="svelte-ptdm6x"><code class="language-bash">npm install sveltemirror</code></pre> <h2 data-svelte-h="svelte-dnbfhr">Usage</h2> <h3 data-svelte-h="svelte-g9rhso">Basic</h3>
+  The most basic usage for just the editor is as follows:
+
+   <div class="scm-waiting rx10 m10 svelte-kcx0g9"><div class="scm-waiting__loading scm-loading svelte-kcx0g9" data-svelte-h="svelte-1pxusly"><div class="scm-loading__spinner svelte-kcx0g9"></div> <p class="scm-loading__text svelte-kcx0g9">Loading editor...</p></div> <pre class="scm-pre cm-editor svelte-kcx0g9">&lt;script>
+    import CodeMirror from "sveltemirror";
+    import { html } from "@codemirror/lang-html";
+
+    let value = "&lt;h1> Hi there! &lt;/h1>";
+&lt;/script>
+
+&lt;CodeMirror bind:value lang={html()} /></pre></div>
+
+  It should create an editor that looks like this:
+
+  <div class="scm-waiting  svelte-kcx0g9"><div class="scm-waiting__loading scm-loading svelte-kcx0g9" data-svelte-h="svelte-1pxusly"><div class="scm-loading__spinner svelte-kcx0g9"></div> <p class="scm-loading__text svelte-kcx0g9">Loading editor...</p></div> <pre class="scm-pre cm-editor svelte-kcx0g9">&lt;h1> Hi there! &lt;/h1></pre></div> <h3 data-svelte-h="svelte-qoco7w">Styling</h3> <p data-svelte-h="svelte-1cu6me4">The editor can accept props to be passed as styles to the editor and also
+    custom themes</p> <div class="scm-waiting rx10 m10 svelte-kcx0g9"><div class="scm-waiting__loading scm-loading svelte-kcx0g9" data-svelte-h="svelte-1pxusly"><div class="scm-loading__spinner svelte-kcx0g9"></div> <p class="scm-loading__text svelte-kcx0g9">Loading editor...</p></div> <pre class="scm-pre cm-editor svelte-kcx0g9">&lt;script>
+    import CodeMirror from "sveltemirror";
+    import { html } from "@codemirror/lang-html";
+    import { oneDark } from "@codemirror/theme-one-dark";
+
+    let value = "&lt;h1> Hi there! &lt;/h1>";
+&lt;/script>
+
+  &lt;CodeMirror
+    bind:value
+    lang={html()}
+    theme={oneDark}
+    styles={{
+	  "&amp;": {
+	    "width": "500px",
+	    "maxWidth": "100%",
+	    "height": "100px"
+	  }
+	}}
+  /></pre></div>
+
+  this will create an editor that looks like this:
+  <div class="scm-waiting  svelte-kcx0g9"><div class="scm-waiting__loading scm-loading svelte-kcx0g9" data-svelte-h="svelte-1pxusly"><div class="scm-loading__spinner svelte-kcx0g9"></div> <p class="scm-loading__text svelte-kcx0g9">Loading editor...</p></div> <pre class="scm-pre cm-editor svelte-kcx0g9">&lt;h1> Hi there! &lt;/h1></pre></div> <h2 data-svelte-h="svelte-9l2j21">Renderer</h2> <p data-svelte-h="svelte-1mz6swx">For ease of use a barebones iframe renderer is provided. The renderer
+    accepts an optional string preprocess function that can be used to modify
+    the code before it is rendered.</p> <div class="scm-waiting rx10 m10 svelte-kcx0g9"><div class="scm-waiting__loading scm-loading svelte-kcx0g9" data-svelte-h="svelte-1pxusly"><div class="scm-loading__spinner svelte-kcx0g9"></div> <p class="scm-loading__text svelte-kcx0g9">Loading editor...</p></div> <pre class="scm-pre cm-editor svelte-kcx0g9">&lt;script>
+    import CodeMirror, { Renderer } from "sveltemirror";
+    import { html } from "@codemirror/lang-html";
+    import { oneDark } from "@codemirror/theme-one-dark";
+
+    let value = "&lt;h1> Hi there! &lt;/h1>";
+  &lt;/script>
+
+    &lt;div style="display:flex;"
+      &lt;CodeMirror
+        bind:value
+        theme={oneDark}
+        styles={{
+          "&amp;": {
+            height: "150px",
+          },
+        }}
+        lang={html()}
+      />
+
+      &lt;Renderer
+        bind:value
+        preprocess={(v) => "Hiiiii" + v}
+      />
+    &lt;/div></pre></div> <div style="display:flex;"><div class="scm-waiting  svelte-kcx0g9"><div class="scm-waiting__loading scm-loading svelte-kcx0g9" data-svelte-h="svelte-1pxusly"><div class="scm-loading__spinner svelte-kcx0g9"></div> <p class="scm-loading__text svelte-kcx0g9">Loading editor...</p></div> <pre class="scm-pre cm-editor svelte-kcx0g9">&lt;h1> Hi there! &lt;/h1></pre></div> <iframe frameborder="0" title="Editor Output" class="svelte-o1y64e"></iframe></div> <p data-svelte-h="svelte-pntvnr"><br></p> <p data-svelte-h="svelte-pntvnr"><br></p> <p data-svelte-h="svelte-pntvnr"><br></p> </main> 
+			
+			<script>
+				{
+					__sveltekit_1a9jfow = {
+						assets: "/sveltemirror",
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.def86328.js"),
+						import("./_app/immutable/entry/app.edcc5e7e.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+</body>
+
+</html>
