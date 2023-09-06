@@ -28,15 +28,15 @@
     <link rel="stylesheet" href="https://manav.ch/atomic.css">
     
 		<link href="./_app/immutable/assets/3.c91ec9cb.css" rel="stylesheet">
-		<link href="./_app/immutable/assets/index.5fef33be.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.def86328.js">
+		<link href="./_app/immutable/assets/tomorrow.5fef33be.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.5170b106.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.d5f951d9.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.3f2d7c60.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.edcc5e7e.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.ece38586.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.bb38725e.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/index.852cda47.js">
 		<link rel="modulepreload" href="./_app/immutable/nodes/0.77d92ce5.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/3.e022a992.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.67a2fe99.js"><!-- HEAD_svelte-zpasi5_START --><style data-svelte-h="svelte-1geob70">body {
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.7fff3c71.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/tomorrow.caa7b518.js"><!-- HEAD_svelte-zpasi5_START --><style data-svelte-h="svelte-1geob70">body {
       background: #eef;
     }</style><!-- HEAD_svelte-zpasi5_END -->
 </head>
@@ -61,7 +61,7 @@
     custom themes</p> <div class="scm-waiting rx10 m10 svelte-kcx0g9"><div class="scm-waiting__loading scm-loading svelte-kcx0g9" data-svelte-h="svelte-1pxusly"><div class="scm-loading__spinner svelte-kcx0g9"></div> <p class="scm-loading__text svelte-kcx0g9">Loading editor...</p></div> <pre class="scm-pre cm-editor svelte-kcx0g9">&lt;script>
     import CodeMirror from "sveltemirror";
     import { html } from "@codemirror/lang-html";
-    import { oneDark } from "@codemirror/theme-one-dark";
+    import { dracula } from "@codemirror/theme-one-dark";
 
     let value = "&lt;h1> Hi there! &lt;/h1>";
 &lt;/script>
@@ -69,7 +69,7 @@
   &lt;CodeMirror
     bind:value
     lang={html()}
-    theme={oneDark}
+    theme={dracula}
     styles={{
 	  "&amp;": {
 	    "width": "500px",
@@ -85,7 +85,7 @@
     the code before it is rendered.</p> <div class="scm-waiting rx10 m10 svelte-kcx0g9"><div class="scm-waiting__loading scm-loading svelte-kcx0g9" data-svelte-h="svelte-1pxusly"><div class="scm-loading__spinner svelte-kcx0g9"></div> <p class="scm-loading__text svelte-kcx0g9">Loading editor...</p></div> <pre class="scm-pre cm-editor svelte-kcx0g9">&lt;script>
     import CodeMirror, { Renderer } from "sveltemirror";
     import { html } from "@codemirror/lang-html";
-    import { oneDark } from "@codemirror/theme-one-dark";
+    import { dracula } from "@codemirror/theme-one-dark";
 
     let value = "&lt;h1> Hi there! &lt;/h1>";
   &lt;/script>
@@ -93,7 +93,7 @@
     &lt;div style="display:flex;"
       &lt;CodeMirror
         bind:value
-        theme={oneDark}
+        theme={dracula}
         styles={{
           "&amp;": {
             height: "150px",
@@ -110,7 +110,7 @@
 			
 			<script>
 				{
-					__sveltekit_1a9jfow = {
+					__sveltekit_sadnuj = {
 						assets: "/sveltemirror",
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
@@ -121,8 +121,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.def86328.js"),
-						import("./_app/immutable/entry/app.edcc5e7e.js")
+						import("./_app/immutable/entry/start.5170b106.js"),
+						import("./_app/immutable/entry/app.bb38725e.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3],
