@@ -1,7 +1,7 @@
 <script>
   import CodeMirror, { Renderer } from "$lib";
   import { html } from "@codemirror/lang-html";
-  import { oneDark } from "@codemirror/theme-one-dark";
+  import { dracula } from "thememirror";
 
   let demo = {
     html: `<h1> Hi there! </h1>`,
@@ -45,7 +45,7 @@
   <CodeMirror
     readonly={true}
     class="rx10 m10"
-    theme={oneDark}
+    theme={dracula}
     value={`<script` +
       `>
     import CodeMirror from "sveltemirror";
@@ -72,12 +72,12 @@
   <CodeMirror
     readonly={true}
     class="rx10 m10"
-    theme={oneDark}
+    theme={dracula}
     value={`<script` +
       `>
     import CodeMirror from "sveltemirror";
     import { html } from "@codemirror/lang-html";
-    import { oneDark } from "@codemirror/theme-one-dark";
+    import { dracula } from "@codemirror/theme-one-dark";
 
     let value = "${demo.html}";
 </scr` +
@@ -86,7 +86,7 @@
   <CodeMirror
     bind:value
     lang={html()}
-    theme={oneDark}
+    theme={dracula}
     styles={${JSON.stringify(demo.style, null, 2)
       .split("\n")
       .map((line) => "\t" + line)
@@ -98,7 +98,7 @@
   this will create an editor that looks like this:
   <CodeMirror
     lang={html()}
-    theme={oneDark}
+    theme={dracula}
     styles={demo.style}
     value={demo.html}
   />
@@ -113,12 +113,12 @@
   <CodeMirror
     readonly={true}
     class="rx10 m10"
-    theme={oneDark}
+    theme={dracula}
     value={`<script` +
       `>
     import CodeMirror, { Renderer } from "sveltemirror";
     import { html } from "@codemirror/lang-html";
-    import { oneDark } from "@codemirror/theme-one-dark";
+    import { dracula } from "@codemirror/theme-one-dark";
 
     let value = "${demo.html}";
   </scr` +
@@ -127,7 +127,7 @@
     <div style="display:flex;"
       <CodeMirror
         bind:value
-        theme={oneDark}
+        theme={dracula}
         styles={{
           "&": {
             height: "150px",
@@ -146,7 +146,7 @@
   <div style="display:flex;">
     <CodeMirror
       lang={html()}
-      theme={oneDark}
+      theme={dracula}
       value={demo.html}
       styles={{
         "&": {

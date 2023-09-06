@@ -45,6 +45,8 @@ To use `sveltemirror`, you need to import the package and use it as any `Svelte`
 | `placeholder` | `string`          | A placeholder to include when value is empty.                        | `undefined`   |
 | `styles`      | `ThemeSpec`       | In-place theme configuration. _See exemple below_.                   | `undefined`   |
 | `delay`      | `number`          | The delay in ms before the `change` event is triggered. i.e the debounce duration.                   | `300`   |
+| `persist`     | `boolean`          | Whether to persist the editor state in the local storage.                   | `false`   |
+| `id`         | `string`          | The id of the editor. It is recommended to use this property when using multiple editors on the same page. If you edit with multiple editors on localhost then it'll treat all of them as the same. So add an id anyway                   | `undefined`   |
 
 ## Events
 
@@ -67,5 +69,6 @@ const config = {
 ```
 
 ## License
+Most of this repository is still the original work by Touchify. Thanks to them for their work ❤️
 
 [MIT](LICENSE)

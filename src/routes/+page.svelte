@@ -1,10 +1,10 @@
 <script lang="ts">
     import CodeMirror, { Renderer } from "$lib";
     import { html } from "@codemirror/lang-html";
-    import { oneDark } from "@codemirror/theme-one-dark";
     import { onMount } from "svelte";
     import Template from "./template.html?raw";
     import type { EditorView } from "codemirror";
+    import { dracula } from "thememirror";
 
     let //
         value = "",
@@ -14,7 +14,7 @@
         tabSize: 2,
         placeholder: null,
         lang: html(),
-        theme: oneDark,
+        theme: dracula,
         basic: true,
         useTab: true,
         editable: true,

@@ -21,11 +21,12 @@
     } from "@codemirror/state";
     import { indentWithTab } from "@codemirror/commands";
     import { indentUnit, type LanguageSupport } from "@codemirror/language";
-    import { debounce } from "./util";
+    import { debounce, save, load, getID } from "./util";
 
     let classes = "";
 
     export { classes as class };
+    export let id: string | undefined = undefined;
     export let value: string | None = "";
     export let basic = true;
     export let lang: LanguageSupport | None = undefined;
@@ -39,6 +40,7 @@
     export let readonly = false;
     export let placeholder: string | HTMLElement | None = undefined;
     export let view: EditorView | None;
+    export let persist: boolean = false;
 
     const is_browser = typeof window !== "undefined";
     const dispatch = createEventDispatcher<{ change: string }>();
@@ -68,7 +70,15 @@
     $: view && update(value);
     $: view && state_extensions && reconfigure();
 
-    onMount(() => (view = create_editor_view()));
+    onMount(() => {
+        id = getID(id);
+        view = create_editor_view();
+
+        if (persist) {
+            const saved = load(id);
+            if (saved) update(saved);
+        }
+    });
     onDestroy(() => view?.destroy());
 
     export let delay: number = 300;
@@ -111,9 +121,7 @@
         }
 
         update_from_prop = true;
-
         view.setState(create_editor_state(value));
-
         update_from_prop = false;
     }
 
@@ -125,6 +133,8 @@
 
         value = new_value;
         dispatch("change", value);
+
+        if (persist) save(value, id);
     }
 
     function create_editor_state(value: string | None): EditorState {

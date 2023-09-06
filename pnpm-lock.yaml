@@ -17,6 +17,9 @@ dependencies:
   '@codemirror/view':
     specifier: ^6.17.1
     version: 6.17.1
+  thememirror:
+    specifier: ^2.0.1
+    version: 2.0.1(@codemirror/language@6.9.0)(@codemirror/state@6.2.1)(@codemirror/view@6.17.1)
 
 devDependencies:
   '@codemirror/lang-css':
@@ -28,9 +31,6 @@ devDependencies:
   '@codemirror/lang-javascript':
     specifier: ^6.2.1
     version: 6.2.1
-  '@codemirror/theme-one-dark':
-    specifier: ^6.1.2
-    version: 6.1.2
   '@sveltejs/adapter-static':
     specifier: 2.0.3
     version: 2.0.3(@sveltejs/kit@1.24.0)
@@ -157,15 +157,6 @@ packages:
 
   /@codemirror/state@6.2.1:
     resolution: {integrity: sha512-RupHSZ8+OjNT38zU9fKH2sv+Dnlr8Eb8sl4NOnnqz95mCFTZUaiRP8Xv5MeeaG0px2b8Bnfe7YGwCV3nsBhbuw==}
-
-  /@codemirror/theme-one-dark@6.1.2:
-    resolution: {integrity: sha512-F+sH0X16j/qFLMAfbciKTxVOwkdAS336b7AXTKOZhy8BR3eH/RelsnLgLFINrpST63mmN2OuwUt0W2ndUgYwUA==}
-    dependencies:
-      '@codemirror/language': 6.9.0
-      '@codemirror/state': 6.2.1
-      '@codemirror/view': 6.17.1
-      '@lezer/highlight': 1.1.6
-    dev: true
 
   /@codemirror/view@6.17.1:
     resolution: {integrity: sha512-I5KVxsLbm1f56n9SUajLW0/AzMXYEZVvkiYahMw/yGl5gUjT2WquuKO39xUtiT4z/hNhGD7YuAEVPI8u0mncaQ==}
@@ -1134,6 +1125,18 @@ packages:
       magic-string: 0.30.3
       periscopic: 3.1.0
     dev: true
+
+  /thememirror@2.0.1(@codemirror/language@6.9.0)(@codemirror/state@6.2.1)(@codemirror/view@6.17.1):
+    resolution: {integrity: sha512-d5i6FVvWWPkwrm4cHLI3t9AT1OrkAt7Ig8dtdYSofgF7C/eiyNuq6zQzSTusWTde3jpW9WLvA9J/fzNKMUsd0w==}
+    peerDependencies:
+      '@codemirror/language': ^6.0.0
+      '@codemirror/state': ^6.0.0
+      '@codemirror/view': ^6.0.0
+    dependencies:
+      '@codemirror/language': 6.9.0
+      '@codemirror/state': 6.2.1
+      '@codemirror/view': 6.17.1
+    dev: false
 
   /tiny-glob@0.2.9:
     resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
